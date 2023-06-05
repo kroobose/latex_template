@@ -1,0 +1,82 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+{
+    "name": "LaTeX",
+    "image": "texlive/texlive",
+    "postCreateCommand": "ln -s $PWD/.devcontainer/.latexmkrc /root/",
+    // "postCreateCommand": "cp .devcontainer/.latexmkrc /root/",
+    // "dockerComposeFile": "docker-compose.yml",
+    // "service": "latex",
+    // "workspaceFolder": "/workspace",
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        // System
+        // "terminal.integrated.shell.linux": "/bin/bash",
+        "extensions.autoCheckUpdates": false,
+        "extensions.autoUpdate": false,
+        "files.exclude": {
+            ".devcontainer/extensions/": true,
+            ".devcontainer/extensions-insiders/": true
+        },
+        "files.associations": {
+            ".latexmkrc": "perl"
+        },
+        // LaTeX
+        "[latex]": {
+            "files.eol": "\n",
+            "editor.detectIndentation": false,
+            "editor.tabSize": 2,
+            "editor.insertSpaces": true
+        },
+        "latex-workshop.message.badbox.show": false,
+        "latex-workshop.message.error.show": false,
+        "latex-workshop.message.information.show": false,
+        "latex-workshop.message.log.show": false,
+        "latex-workshop.message.update.show": false,
+        "latex-workshop.message.warning.show": false,
+        "latex-workshop.latex.autoBuild.run": "onSave",
+        "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+        "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)",
+        "latex-workshop.view.pdf.viewer": "browser",
+        //"latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "latex-workshop.latex.clean.fileTypes": [
+            "*.aux",
+            "*.bbl",
+            "*.blg",
+            "*.idx",
+            "*.ind",
+            "*.lof",
+            "*.lot",
+            "*.out",
+            "*.toc",
+            "*.acn",
+            "*.acr",
+            "*.alg",
+            "*.glg",
+            "*.glo",
+            "*.gls",
+            "*.ist",
+            "*.fls",
+            //"*.log",
+            "*.fdb_latexmk",
+            "*.snm",
+            "*.nav",
+            "*.dvi"
+            //"*.synctex.gz"
+        ]
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "James-Yu.latex-workshop",
+        "streetsidesoftware.code-spell-checker"
+    ],
+    "mounts": [
+        // extensions
+        "source=${localWorkspaceFolder}/.devcontainer/extensions,target=/root/.vscode-server/extensions,type=bind,consistency=cached",
+        // extensions-insiders
+        "source=${localWorkspaceFolder}/.devcontainer/extensions-insiders,target=/root/.vscode-server-insiders/extensions,type=bind,consistency=cached",
+        // additional mounts
+        // "source=<mount folder or file>,target=<mount point>,type=bind"
+        // example: "source=/mochi/latex,target=/workspaces/mochi,type=bind"
+    ]
+}

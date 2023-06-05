@@ -1,0 +1,38 @@
+# VSCode extension cache
+#.devcontainer/extensions/*
+.devcontainer/extensions/**
+.devcontainer/extensions/**/*
+!.devcontainer/extensions/.gitkeep
+#.devcontainer/extensions-insiders/*
+.devcontainer/extensions-insiders/**
+.devcontainer/extensions-insiders/**/*
+!.devcontainer/extensions-insiders/.gitkeep
+
+# LaTeX outputs
+#/*.pdf
+# taken from https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-workshoplatexcleanfiletypes
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.fls
+*.log
+*.fdb_latexmk
+*.snm
+*.synctex*
+*.nav
+# added by fuzmish
+*.dvi
+*.bcf
+*.run.xml

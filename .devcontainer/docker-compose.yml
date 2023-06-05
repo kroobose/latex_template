@@ -1,0 +1,10 @@
+version: '3'
+services:
+  latex_test:
+    stdin_open: true
+    build: .
+    shm_size: '16gb'
+    container_name: 'latex'
+    working_dir: '/'
+    tty: true
+    image: latex_img
